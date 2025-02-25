@@ -10,12 +10,26 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@capacitor/android": "^7.0.1",
     "@capacitor/cli": "^7.0.1",
     "@capacitor/core": "^7.0.1",
     "@capacitor/ios": "^7.0.1",
+    "@pinia/nuxt": "^0.9.0",
+    "@quasar/extras": "^1.16.17",
     "nuxt": "^3.15.4",
-    "vue": "latest",
-    "vue-router": "latest"
+    "quasar": "^2.17.7",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.2.0",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "eslint": "^9.20.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^17.15.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "sass": "1.77.6",
+    "typescript": "^5.7.3"
   }
 }
