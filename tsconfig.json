@@ -1,4 +1,11 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types", // 默認類型
+      "./types"                // 自定義類型聲明路徑
+    ],
+    "paths": {
+    }
+  }
 }
