@@ -1,10 +1,10 @@
 export default defineNuxtConfig({
-    ssr: false,   // 關閉 SSR → 只在 Client 端進行渲染
+    ssr: true, // 關閉 SSR → 只在 Client 端進行渲染
     nitro: {
-        preset: 'static' // 替代原來的 target: 'static'
+        preset: 'static', // 替代原來的 target: 'static'
     },
     devServer: {
-        port: 6969 // 推荐使用 devServer
+        port: 6969, // 推荐使用 devServer
     },
     // 加載模塊
     modules: [
@@ -49,8 +49,8 @@ export default defineNuxtConfig({
         },
         // 如果需要自定義配置，可以在這裡添加
         optimizeDeps: {
-            include: ['vue', 'vue-router']
-        }
+            include: ['vue', 'vue-router'],
+        },
     },
 
 });
