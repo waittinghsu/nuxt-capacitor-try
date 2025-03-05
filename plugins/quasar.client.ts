@@ -1,4 +1,4 @@
-import { Notify, QAvatar, QBtn, QCard, QCardActions, QCardSection, QChip, QDrawer, QFooter, QHeader, QImg, QInput, QItem, QItemSection, QLayout, QList, QPageContainer, QScrollArea, QSeparator, QTab, QTabs, QToolbar, QToolbarTitle, Quasar, Ripple } from 'quasar';
+import { Notify, QAvatar, QBtn, QCard, QCardActions, QCardSection, QChip, QDrawer, QExpansionItem, QFooter, QHeader, QIcon, QImg, QInput, QItem, QItemSection, QLayout, QList, QPageContainer, QScrollArea, QSeparator, QTab, QTabs, QToolbar, QToolbarTitle, Quasar, Ripple } from 'quasar';
 import 'quasar/dist/quasar.css';
 import '@quasar/extras/material-icons/material-icons.css';
 
@@ -20,6 +20,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             QChip,
             QCardSection,
             QCardActions,
+            QExpansionItem,
             QDrawer,
             QFooter,
             QHeader,
@@ -27,6 +28,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             QItem,
             QItemSection,
             QInput,
+            QIcon,
             QLayout,
             QList,
             QPageContainer,
