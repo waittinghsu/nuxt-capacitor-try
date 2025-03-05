@@ -1,4 +1,7 @@
 <script setup>
+import material from '/assets/images/material-bg.png';
+import MenuExpansionItem from '/layout/components/MenuExpansionItem';
+
 const tab = ref('images');
 const drawer = ref(true);
 const menuList = [
@@ -46,6 +49,102 @@ const menuList = [
         separator: false,
     },
 ];
+console.log('menuList', menuList);
+const menuList2 = [
+    {
+        key: 'userProfile',
+        name: '個人中心',
+        children: [
+            {
+                key: 'indexPage',
+                name: '首頁Dashboard',
+                children: [],
+            },
+        ],
+    },
+    {
+        key: 'cmdb',
+        name: '首页',
+        children: [
+            {
+                key: 'indexPage',
+                name: '首頁Dashboard',
+                children: [],
+            },
+        ],
+    },
+    {
+        key: 'businessManagement',
+        name: '业务管理[new]',
+        children: [
+            {
+                key: 'productConfigurable',
+                name: '产品',
+                children: [],
+            },
+            {
+                key: 'moduleConfigurable',
+                name: '模块',
+                children: [
+
+                ],
+            },
+            {
+                key: 'businessConfigurable',
+                name: '业务',
+                children: [],
+            },
+        ],
+    },
+    {
+        key: 'physicalMachineRoomManagement',
+        name: '实体机房[new]',
+        children: [
+            {
+                key: 'physicalMachineRoom',
+                name: '实体机房',
+                children: [],
+            },
+            {
+                key: 'physicalEquipmentCabinet',
+                name: '实体机柜',
+                children: [],
+            },
+        ],
+    },
+    {
+        key: 'platformMgmt',
+        name: '平台管理',
+        children: [
+            {
+                key: 'ruleMgmt',
+                name: '权限管理',
+                children: [],
+            },
+            {
+                key: 'menuConfig',
+                name: '菜单管理',
+                children: [],
+            },
+            {
+                key: 'apiAudit',
+                name: 'API审计',
+                children: [],
+            },
+            {
+                key: 'deptMgmt',
+                name: '部门管理',
+                children: [],
+            },
+            {
+                key: 'userMgmt',
+                name: '用户管理',
+                children: [],
+            },
+        ],
+    },
+];
+console.log('menuList2', menuList2);
 </script>
 
 <template>
@@ -55,9 +154,11 @@ const menuList = [
                 <q-toolbar class="glossy">
                     <q-btn flat round dense icon="menu" class="q-mr-sm" @click="drawer = !drawer" />
                     <q-avatar>
-                        <img src="assets/images/quasar.png">
+                        <img src="assets/svg/logo-light.svg">
                     </q-avatar>
-                    <q-toolbar-title>Quasar Framework</q-toolbar-title>
+                    <q-toolbar-title class="text-center">
+                        Quasar Framework
+                    </q-toolbar-title>
                     <nav />
                     <q-btn flat round dense icon="whatshot" />
                 </q-toolbar>
@@ -69,7 +170,7 @@ const menuList = [
             </q-page-container>
             <q-footer bordered class="bg-grey-3 text-primary">
                 <q-tabs v-model="tab" no-caps active-color="primary" indicator-color="transparent" class="text-grey-8">
-                    <q-tab name="images" label="Images" />
+                    <q-tab name="images" label="Game" />
                     <q-tab name="videos" label="Videos" />
                     <q-tab name="articles" label="Articles" />
                 </q-tabs>
@@ -78,25 +179,30 @@ const menuList = [
                 v-model="drawer"
                 :width="200"
                 :breakpoint="500"
-                overlay
+                show-if-above
                 bordered
                 :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
             >
-                <q-scroll-area class="fit">
+                <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
                     <q-list>
-                        <template v-for="(menuItem, index) in menuList" :key="index">
-                            <q-item v-ripple clickable :active="menuItem.label === 'Outbox'" @click="navigateTo(menuItem.to)">
-                                <q-item-section avatar>
-                                    <q-icon :name="menuItem.icon" />
-                                </q-item-section>
-                                <q-item-section>
-                                    {{ menuItem.label }}
-                                </q-item-section>
-                            </q-item>
-                            <q-separator v-if="menuItem.separator" :key="`sep${index}`" />
-                        </template>
+                        <MenuExpansionItem
+                            v-for="(menu, index) in menuList2"
+                            :key="index"
+                            :menu="menu"
+                        />
                     </q-list>
                 </q-scroll-area>
+                <q-img class="absolute-top" :src="material" style="height: 150px">
+                    <div class="absolute-bottom bg-transparent">
+                        <q-avatar size="56px" class="q-mb-sm">
+                            <img src="assets/images/avatar.png">
+                        </q-avatar>
+                        <div class="text-weight-bold">
+                            Razvan Stoenescu
+                        </div>
+                        <div>@rstoenescu</div>
+                    </div>
+                </q-img>
             </q-drawer>
         </q-layout>
         <NuxtRouteAnnouncer />
