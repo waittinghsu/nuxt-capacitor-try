@@ -17,150 +17,6 @@ const chips = ref([
     'axios',
 ]);
 
-const menus = ref([
-    {
-        key1: 'platformManage',
-        key2: '',
-        name: '平台管理',
-        parent: null,
-        type: 1,
-        sort: 6,
-        children: [
-            {
-                key1: 'platformAuthorityManage',
-                key2: '',
-                name: '权限管理',
-                type: 1,
-                sort: 1,
-                children: [
-                    {
-                        key1: 'roleManage',
-                        key2: '',
-                        name: '角色管理',
-                        type: 1,
-                        sort: 1,
-                        children: [
-                            {
-                                key1: 'add',
-                                key2: '',
-                                name: '新增',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'batch-delete',
-                                key2: '',
-                                name: '批量删除',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'edit',
-                                key2: '',
-                                name: '编辑',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'checkup',
-                                key2: '',
-                                name: '查看',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'delete',
-                                key2: '',
-                                name: '删除',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'operation',
-                                key2: '',
-                                name: '操作',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                        ],
-                    },
-                    {
-                        key1: 'authoritySetting',
-                        key2: '',
-                        name: '权限分配',
-                        type: 1,
-                        sort: 2,
-                        children: [
-                            {
-                                key1: 'add',
-                                key2: '',
-                                name: '新增',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'batch-delete',
-                                key2: '',
-                                name: '批量删除',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'operation',
-                                key2: '',
-                                name: '操作',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'edit',
-                                key2: '',
-                                name: '编辑',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                            {
-                                key1: 'delete',
-                                key2: '',
-                                name: '删除',
-                                type: 2,
-                                sort: 0,
-                                children: [],
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                key1: 'apiAudit',
-                key2: '',
-                name: 'Api审计',
-                type: 1,
-                sort: 3,
-                children: [],
-            },
-            {
-                key1: 'platformMenus',
-                key2: '',
-                name: '菜单管理',
-                type: 1,
-                sort: 2,
-                children: [],
-            },
-        ],
-    },
-]);
-// 用於收集使用者要新增 Chip 的暫存值
 const newChip = ref('');
 
 function addChip() {
@@ -179,6 +35,10 @@ function removeLastChip() {
 
 <template>
     <div class="dashboard-page q-pa-md">
+        <span>{{ count }}</span>
+        <q-btn @click="incrementCount">
+            incrementCount
+        </q-btn>
         <!-- 上方 work 區塊，用來操作 chips -->
         <section class="q-mb-md">
             <h3>Work Section</h3>

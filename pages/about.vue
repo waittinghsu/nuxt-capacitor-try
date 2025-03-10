@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <NuxtWelcome></NuxtWelcome>
+    <NuxtWelcome />
 </template>
 
 <style scoped>

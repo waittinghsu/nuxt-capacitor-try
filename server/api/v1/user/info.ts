@@ -10,7 +10,7 @@ export default defineEventHandler(() => {
                 { id: 2, name: 'About', key: 'about' },
                 { id: 3, name: 'UserInfo', key: 'userInfo' },
             ],
-            role: 'admin'
-        }
-    }
-})
+            role: 'admin',
+        },
+    };
+});
