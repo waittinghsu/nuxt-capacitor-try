@@ -2,31 +2,28 @@
 <script setup>
 import MenuExpansionItem from '/layout/components/MenuExpansionItem';
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const props = defineProps({
     menu: {
         type: Object,
         required: true,
     },
 });
-console.log('props', props);
+
+const router = useRouter();
+
 function getIcon(key) {
     const iconMap = {
-        userProfile: 'person',
-        cmdb: 'dashboard',
-        businessManagement: 'business',
-        physicalMachineRoomManagement: 'storage',
-        platformMgmt: 'settings',
-        indexPage: 'home',
-        productConfigurable: 'category',
-        moduleConfigurable: 'widgets',
-        businessConfigurable: 'work',
-        physicalMachineRoom: 'computer',
-        physicalEquipmentCabinet: 'computer',
-        ruleMgmt: 'lock',
-        menuConfig: 'menu',
-        apiAudit: 'api',
-        deptMgmt: 'group',
-        userMgmt: 'group',
+        Dashboard: 'home',
+        UserProfile: 'person',
+        Account: 'paid',
+        Deposit: 'exchange',
+        Withdrawal: 'bitcoin',
+        Activity: 'sell',
+        Report: 'description',
+        Promo: 'flood',
+        VIP: 'star',
+        FAQ: 'help',
     };
     return iconMap[key] || 'menu';
 }
@@ -34,23 +31,21 @@ function getIcon(key) {
 function navigateTo(item) {
     // 根据 key 定义路由映射
     const routeMap = {
-        indexPage: '/dashboard',
-        userProfile: '/profile',
-        productConfigurable: '/product',
-        moduleConfigurable: '/module',
-        businessConfigurable: '/business',
-        physicalMachineRoom: '/machine-room',
-        physicalEquipmentCabinet: '/equipment-cabinet',
-        ruleMgmt: '/permissions',
-        menuConfig: '/menu-config',
-        apiAudit: '/api-audit',
-        deptMgmt: '/department',
-        userMgmt: '/users',
+        UserProfile: '/profile',
+        Dashboard: '/dashboard',
+        account: '/account',
+        Deposit: '/account/deposit',
+        Withdrawal: '/account/withdrawal',
+        Activity: '/activity',
+        Report: '/report',
+        Promo: '/promo',
+        VIP: '/vip',
+        FAQ: '/about',
     };
 
     const route = routeMap[item.key];
     if (route) {
-        navigateTo(route);
+        router.push(route);
     }
 }
 </script>

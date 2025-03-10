@@ -1,157 +1,24 @@
 <script setup>
+import { useMenu } from '@/stores/useMenu';
 import material from '/assets/images/material-bg.png';
 import MenuExpansionItem from '/layout/components/MenuExpansionItem';
 
+const menu = useMenu();
+// 使用 storeToRefs 來保持響應性
+const { menuList } = storeToRefs(menu);
+
 const tab = ref('images');
 const drawer = ref(true);
-const menuList = [
-    {
-        icon: 'inbox',
-        label: '首頁',
-        separator: true,
-        to: '/',
-    },
-    {
-        icon: 'send',
-        label: '控制台',
-        separator: false,
-        to: '/dashboard', // 控制台
-
-    },
-    {
-        icon: 'delete',
-        label: '關於我們',
-        separator: false,
-        to: '/about', // 關於我們
-
-    },
-    {
-        icon: 'error',
-        label: '測試頁面',
-        separator: true,
-        to: '/test', // 測試頁面
-
-    },
-    {
-        icon: 'settings',
-        label: 'Settings',
-        separator: false,
-    },
-    {
-        icon: 'feedback',
-        label: 'Send Feedback',
-        separator: false,
-    },
-    {
-        icon: 'help',
-        iconColor: 'primary',
-        label: 'Help',
-        separator: false,
-    },
-];
-console.log('menuList', menuList);
-const menuList2 = [
-    {
-        key: 'userProfile',
-        name: '個人中心',
-        children: [
-            {
-                key: 'indexPage',
-                name: '首頁Dashboard',
-                children: [],
-            },
-        ],
-    },
-    {
-        key: 'cmdb',
-        name: '首页',
-        children: [
-            {
-                key: 'indexPage',
-                name: '首頁Dashboard',
-                children: [],
-            },
-        ],
-    },
-    {
-        key: 'businessManagement',
-        name: '业务管理[new]',
-        children: [
-            {
-                key: 'productConfigurable',
-                name: '产品',
-                children: [],
-            },
-            {
-                key: 'moduleConfigurable',
-                name: '模块',
-                children: [
-
-                ],
-            },
-            {
-                key: 'businessConfigurable',
-                name: '业务',
-                children: [],
-            },
-        ],
-    },
-    {
-        key: 'physicalMachineRoomManagement',
-        name: '实体机房[new]',
-        children: [
-            {
-                key: 'physicalMachineRoom',
-                name: '实体机房',
-                children: [],
-            },
-            {
-                key: 'physicalEquipmentCabinet',
-                name: '实体机柜',
-                children: [],
-            },
-        ],
-    },
-    {
-        key: 'platformMgmt',
-        name: '平台管理',
-        children: [
-            {
-                key: 'ruleMgmt',
-                name: '权限管理',
-                children: [],
-            },
-            {
-                key: 'menuConfig',
-                name: '菜单管理',
-                children: [],
-            },
-            {
-                key: 'apiAudit',
-                name: 'API审计',
-                children: [],
-            },
-            {
-                key: 'deptMgmt',
-                name: '部门管理',
-                children: [],
-            },
-            {
-                key: 'userMgmt',
-                name: '用户管理',
-                children: [],
-            },
-        ],
-    },
-];
-console.log('menuList2', menuList2);
 </script>
 
 <template>
-    <div class="">
+    <div class="bg-deep-purple-7">
         <q-layout view="lHh lpr lFf" container style="height: 100vh" class="shadow-2 rounded-borders">
             <q-header elevated>
-                <q-toolbar class="glossy">
+                <!-- 狀態列空間 -->
+                <div class="status-bar" />
+                <!-- 實際工具列 -->
+                <q-toolbar class="glossy bg-deep-purple-9">
                     <q-btn flat round dense icon="menu" class="q-mr-sm" @click="drawer = !drawer" />
                     <q-avatar>
                         <img src="assets/svg/logo-light.svg">
@@ -163,16 +30,20 @@ console.log('menuList2', menuList2);
                     <q-btn flat round dense icon="whatshot" />
                 </q-toolbar>
             </q-header>
-            <q-page-container>
-                <main>
-                    <NuxtPage /> <!-- 必須保留，用於渲染子路由頁面 -->
-                </main>
+            <q-page-container class="">
+                <NuxtPage /> <!-- 必須保留，用於渲染子路由頁面 -->
             </q-page-container>
-            <q-footer bordered class="bg-grey-3 text-primary">
-                <q-tabs v-model="tab" no-caps active-color="primary" indicator-color="transparent" class="text-grey-8">
-                    <q-tab name="images" label="Game" />
-                    <q-tab name="videos" label="Videos" />
-                    <q-tab name="articles" label="Articles" />
+            <q-footer bordered class="bg-deep-purple-9">
+                <q-tabs
+                    v-model="tab" no-caps
+                    active-color="primary"
+                    indicator-color="transparent" class="text-white footer-tabs"
+                >
+                    <q-tab name="Home" icon="home" label="Home" />
+                    <q-tab name="Promo" icon="redeem" label="Promo" />
+                    <q-tab name="Get" icon="coronavirus" label="Get 500" class="text-h5" />
+                    <q-tab name="Earn" icon="savings" label="Earn" />
+                    <q-tab name="Mine" icon="person" label="Mine" />
                 </q-tabs>
             </q-footer>
             <q-drawer
@@ -186,7 +57,7 @@ console.log('menuList2', menuList2);
                 <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
                     <q-list>
                         <MenuExpansionItem
-                            v-for="(menu, index) in menuList2"
+                            v-for="(menu, index) in menuList || []"
                             :key="index"
                             :menu="menu"
                         />
@@ -198,9 +69,9 @@ console.log('menuList2', menuList2);
                             <img src="assets/images/avatar.png">
                         </q-avatar>
                         <div class="text-weight-bold">
-                            Razvan Stoenescu
+                            Razvan Hsu
                         </div>
-                        <div>@rstoenescu</div>
+                        <div>@101Admin</div>
                     </div>
                 </q-img>
             </q-drawer>
@@ -210,19 +81,42 @@ console.log('menuList2', menuList2);
 </template>
 
 <style lang="scss" scoped>
-//header {
-//  background-color: #f4f4f4;
-//  padding: 1em;
-//}
 nav a {
   margin-right: 1em;
   text-decoration: none;
   color: #333;
 }
-//footer {
-//  text-align: center;
-//  padding: 1em;
-//  background: #f4f4f4;
-//  margin-top: 2em;
-//}
+
+.mobile-header {
+  /* 適應頂部安全區域 */
+  padding-top: env(safe-area-inset-top);
+  /* 背景延伸到狀態列 */
+  background-color: #1976d2;
+}
+.status-bar {
+  height: env(safe-area-inset-top);
+}
+
+/* 確保內容不會被頂部遮住 */
+.q-page-container {
+  padding-top: calc(50px + env(safe-area-inset-top));
+}
+
+:deep(.footer-tabs) {
+  .q-tabs__content {
+    overflow: visible !important;
+    .q-tab:nth-child(3) {
+      i {
+        position: absolute;
+        top: -31px;
+        left: 25%;
+        transform: translateX(-50%);
+        font-size: 60px;
+      }
+      .q-tab__label {
+        font-size: 20px;
+      }
+    }
+  }
+}
 </style>

@@ -1,9 +1,14 @@
 export default defineNuxtConfig({
-    ssr: true, // 關閉 SSR → 只在 Client 端進行渲染
+    ssr: false, // 關閉 SSR → 只在 Client 端進行渲染
     nitro: {
         preset: 'static', // 替代原來的 target: 'static'
+        prerender: {
+            crawlLinks: false, // 關閉自動爬蟲
+            routes: ['/'], // 只預渲染首頁
+        },
     },
     devServer: {
+        host: '0.0.0.0', // 允許外部訪問
         port: 6969, // 推荐使用 devServer
     },
     // 加載模塊
@@ -14,7 +19,8 @@ export default defineNuxtConfig({
     },
     // 基本應用配置
     app: {
-        baseURL: '/', // 設置靜態部署時的基礎路徑
+        baseURL: '/', // 使用相對路徑
+        buildAssetsDir: '_nuxt', // 設置資源目錄
     },
     // 開發工具
     devtools: {
@@ -22,7 +28,7 @@ export default defineNuxtConfig({
     },
     // PostCSS 和全局樣式支持
     css: [
-        '@/assets/css/main.css',
+        'assets/css/main.css',
         // Quasar 基本樣式
         'quasar/dist/quasar.css',
         // 其它 Quasar 需要的圖示、或不同風格
