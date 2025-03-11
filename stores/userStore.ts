@@ -18,8 +18,7 @@ export const useUserStore = defineStore('user', {
         async fetchUserById(id: number): Promise<User | undefined> {
             // 模擬從 API 獲取用戶詳細數據
             const users = await $fetch('/api/users');
-            // eslint-disable-next-line ts/no-unsafe-call,ts/no-unsafe-return
-            return users.find((user: User) => user.id === id);
+            return (users as User[]).find((user: User) => user.id === id);
         },
     },
 });
