@@ -41,6 +41,7 @@ function navigateTo(item) {
         Promo: '/promo',
         VIP: '/vip',
         FAQ: '/about',
+        Test: '/test',
     };
 
     const route = routeMap[item.key];
