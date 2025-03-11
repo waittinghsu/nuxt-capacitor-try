@@ -15,6 +15,20 @@ interface MenuState {
     loading: boolean
 }
 
+const menuConfig: Record<string, { icon: string, route: string }> = {
+    Dashboard: { icon: 'home', route: '/dashboard' },
+    UserProfile: { icon: 'person', route: '/profile' },
+    Account: { icon: 'paid', route: '/account' },
+    Deposit: { icon: 'exchange', route: '/account/deposit' },
+    Withdrawal: { icon: 'bitcoin', route: '/account/withdrawal' },
+    Activity: { icon: 'sell', route: '/activity' },
+    Report: { icon: 'description', route: '/report' },
+    Promo: { icon: 'flood', route: '/promo' },
+    VIP: { icon: 'star', route: '/vip' },
+    FAQ: { icon: 'help', route: '/about' },
+    Test: { icon: '', route: '/test' },
+};
+
 export const useMenu = defineStore('menu', {
     state: (): MenuState => ({
         menuList: [
@@ -67,6 +81,11 @@ export const useMenu = defineStore('menu', {
             {
                 key: 'FAQ',
                 name: 'FAQ',
+                children: [],
+            },
+            {
+                key: 'Test',
+                name: 'Test',
                 children: [],
             },
         ] as MenuItem[],
