@@ -23,5 +23,6 @@ export default antfu({
     },
     rules: {
         'style/semi': ['error', 'always'], // 強制每行結尾使用分號
+        'no-console': 'off', // 關閉 console 告警
     },
 });
