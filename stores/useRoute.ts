@@ -12,34 +12,6 @@ export interface AppRoute {
     hidden?: boolean
     children?: AppRoute[]
 }
-// Dashboard: { icon: 'home', route: '/dashboard' },
-// UserProfile: { icon: 'person', route: '/profile' },
-// Account: { icon: 'paid', route: '/account' },
-// Deposit: { icon: 'exchange', route: '/account/deposit' },
-// Withdrawal: { icon: 'bitcoin', route: '/account/withdrawal' },
-// Activity: { icon: 'sell', route: '/activity' },
-// Report: { icon: 'description', route: '/report' },
-// Promo: { icon: 'flood', route: '/promo' },
-// VIP: { icon: 'star', route: '/vip' },
-// FAQ: { icon: 'help', route: '/about' },
-// Test: { icon: '', route: '/test' },
-interface RouteMetaConfigItem {
-    alias: string
-    meta: {
-        title: string
-        icon: string
-        [key: string]: any
-    }
-}
-
-const routeMetaConfig = new Map<string, RouteMetaConfigItem>([
-    ['test', { alias: 'App_Test', meta: { title: '測試頁面', icon: 'help' } }],
-    ['dashboard', { alias: 'Dashboard', meta: { title: 'Dashboard', icon: 'home' } }],
-    ['account-deposit', { alias: 'Deposit', meta: { title: '入金', icon: 'exchange' } }],
-]);
-
-// 測試取值
-console.log(routeMetaConfig.get('test'));
 
 function filterRoutes(
     routes: AppRoute[],
@@ -68,14 +40,14 @@ export const useRouterStore = defineStore('router', {
         autoRoutes: [] as AppRoute[],
         // 根據權限過濾後的路由配置
         filteredRoutes: [] as AppRoute[],
-        routeMetaConfig,
     }),
     actions: {
         /**
          * 從 Vue Router 實例中獲取目前所有自動生成的路由配置
          */
         fetchAutoRoutes() {
-
+            console.log(111);
+            return 555;
         },
         /**
          * 根據權限物件過濾自動生成的路由
