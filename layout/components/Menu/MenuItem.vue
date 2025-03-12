@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { AppMenuItem } from '@/stores/useMenu';
+import MenuItem from '@/layout/components/Menu/MenuItem.vue'; // 這樣可以遞迴使用
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-import MenuItem from './MenuItem.vue'; // 這樣可以遞迴使用
 
 const props = defineProps<{
     menu: AppMenuItem
