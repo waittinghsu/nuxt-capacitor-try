@@ -1,12 +1,12 @@
 <script setup>
 import { useMenu } from '@/stores/useMenu';
 import material from '/assets/images/material-bg.png';
-import MenuExpansionItem from '/layout/components/MenuExpansionItem';
+import Menu from '/layout/components/Menu';
 
-const menu = useMenu();
+const menuStore = useMenu();
 // 使用 storeToRefs 來保持響應性
-const { menuList } = storeToRefs(menu);
-
+const { appMenu } = storeToRefs(menuStore);
+console.log('appMenu', appMenu.value);
 const tab = ref('images');
 const drawer = ref(true);
 </script>
@@ -55,13 +55,7 @@ const drawer = ref(true);
                 :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
             >
                 <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
-                    <q-list>
-                        <MenuExpansionItem
-                            v-for="(menu, index) in menuList || []"
-                            :key="index"
-                            :menu="menu"
-                        />
-                    </q-list>
+                    <Menu :menu="appMenu" is-root />
                 </q-scroll-area>
                 <q-img class="absolute-top" :src="material" style="height: 150px">
                     <div class="absolute-bottom bg-transparent">
