@@ -1,11 +1,21 @@
 // stores/useMenu.ts
 import { defineStore } from 'pinia';
+import { useRouteEnhancerStore } from './useRouteEnhancerStore';
 
 // 定義選單項目的型別
 interface MenuItem {
     key: string
-    name: string
+    name?: string
     children?: MenuItem[]
+}
+
+// 定義經過補充後的選單項目型別
+export interface AppMenuItem {
+    key: string
+    label: string
+    icon: string
+    route: string
+    children: AppMenuItem[]
 }
 
 // 定義 store 的狀態介面
@@ -14,78 +24,52 @@ interface MenuState {
     activeKey: string
     loading: boolean
 }
-
-const menuConfig: Record<string, { icon: string, route: string }> = {
-    Dashboard: { icon: 'home', route: '/dashboard' },
-    UserProfile: { icon: 'person', route: '/profile' },
-    Account: { icon: 'paid', route: '/account' },
-    Deposit: { icon: 'exchange', route: '/account/deposit' },
-    Withdrawal: { icon: 'bitcoin', route: '/account/withdrawal' },
-    Activity: { icon: 'sell', route: '/activity' },
-    Report: { icon: 'description', route: '/report' },
-    Promo: { icon: 'flood', route: '/promo' },
-    VIP: { icon: 'star', route: '/vip' },
-    FAQ: { icon: 'help', route: '/about' },
-    Test: { icon: '', route: '/test' },
-};
-
 export const useMenu = defineStore('menu', {
     state: (): MenuState => ({
         menuList: [
             {
                 key: 'Dashboard',
-                name: '首页',
                 children: [],
             },
             {
                 key: 'UserProfile',
-                name: '個人中心',
                 children: [],
             },
             {
                 key: 'Account',
-                name: '帳務管理',
                 children: [
                     {
                         key: 'Deposit',
-                        name: '存款',
                         children: [],
                     },
                     {
                         key: 'Withdrawal',
-                        name: '提款',
                         children: [],
                     },
                 ],
             },
             {
                 key: 'Activity',
-                name: '活动',
                 children: [],
             },
             {
                 key: 'Report',
-                name: '報表',
                 children: [],
             },
             {
                 key: 'Promo',
-                name: '促銷',
                 children: [],
             },
             {
                 key: 'VIP',
-                name: 'VIP',
                 children: [],
             },
             {
                 key: 'FAQ',
-                name: 'FAQ',
                 children: [],
             },
             {
-                key: 'Test',
-                name: 'Test',
+                key: 'App_Test',
                 children: [],
             },
         ] as MenuItem[],
@@ -94,7 +78,29 @@ export const useMenu = defineStore('menu', {
     }),
 
     getters: {
-
+        appMenu(state): AppMenuItem[] {
+            const routeEnhancer = useRouteEnhancerStore();
+            function processMenus(menus: MenuItem[]): AppMenuItem[] {
+                return menus.reduce<AppMenuItem[]>((result, item) => {
+                    // 若找不到對應配置則跳過這個選項
+                    const routeConfig = routeEnhancer.routeMetaConfig.get(item.key);
+                    if (!routeConfig) {
+                        return result;
+                    }
+                    const children
+                        = item.children && item.children.length ? processMenus(item.children) : [];
+                    result.push({
+                        key: item.key,
+                        label: routeConfig.meta.title,
+                        icon: routeConfig.meta.icon,
+                        route: routeConfig.route,
+                        children,
+                    });
+                    return result;
+                }, []);
+            }
+            return processMenus(state.menuList);
+        },
     },
 
     actions: {
