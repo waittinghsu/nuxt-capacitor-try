@@ -55,7 +55,7 @@ const drawer = ref(true);
                 :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
             >
                 <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
-                    <Menu :menu="appMenu" is-root />
+                    <Menu :menu="appMenu" :level="0" is-root />
                 </q-scroll-area>
                 <q-img class="absolute-top" :src="material" style="height: 150px">
                     <div class="absolute-bottom bg-transparent">
