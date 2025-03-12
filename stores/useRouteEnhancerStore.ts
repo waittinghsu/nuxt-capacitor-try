@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 
 export interface RouteMetaConfigItem {
     alias: string
-    route: string
+    routeName: string
     meta: {
         title: string
         icon: string
@@ -13,24 +13,24 @@ export interface RouteMetaConfigItem {
 }
 // title 只是方便前端看這路由是什麼名字 到時候會用多語系檔來讀文字
 const routeConfig: RouteMetaConfigItem[] = [
-    { alias: 'App_Test', route: 'test', meta: { title: '測試頁面', icon: 'quiz' } },
-    { alias: 'Dashboard', route: 'dashboard', meta: { title: 'Dashboard', icon: 'home' } },
-    { alias: 'UserProfile', route: 'profile', meta: { title: '個人中心', icon: 'person' } },
-    { alias: 'Account', route: 'account', meta: { title: '帳務管理', icon: 'paid' } },
-    { alias: 'Deposit', route: 'account-deposit', meta: { title: '存款', icon: 'currency_exchange' } },
-    { alias: 'Withdrawal', route: 'account-withdrawal', meta: { title: '提款', icon: 'sell' } },
-    { alias: 'Activity', route: 'activity', meta: { title: '活动', icon: 'currency_bitcoin' } },
-    { alias: 'Promo', route: 'promo', meta: { title: '促銷', icon: 'flood' } },
-    { alias: 'Report', route: 'report', meta: { title: '報表', icon: 'description' } },
-    { alias: 'VIP', route: 'vip', meta: { title: 'VIP', icon: 'star' } },
-    { alias: 'FAQ', route: 'about', meta: { title: 'FAQ', icon: 'help' } },
+    { alias: 'App_Test', routeName: 'test', meta: { title: '測試頁面', icon: 'quiz' } },
+    { alias: 'Dashboard', routeName: 'dashboard', meta: { title: 'Dashboard', icon: 'home' } },
+    { alias: 'UserProfile', routeName: 'profile', meta: { title: '個人中心', icon: 'person' } },
+    { alias: 'Account', routeName: 'account', meta: { title: '帳務管理', icon: 'paid' } },
+    { alias: 'Deposit', routeName: 'account-deposit', meta: { title: '存款', icon: 'currency_exchange' } },
+    { alias: 'Withdrawal', routeName: 'account-withdrawal', meta: { title: '提款', icon: 'sell' } },
+    { alias: 'Activity', routeName: 'activity', meta: { title: '活动', icon: 'currency_bitcoin' } },
+    { alias: 'Promo', routeName: 'promo', meta: { title: '促銷', icon: 'flood' } },
+    { alias: 'Report', routeName: 'report', meta: { title: '報表', icon: 'description' } },
+    { alias: 'VIP', routeName: 'vip', meta: { title: 'VIP', icon: 'star' } },
+    { alias: 'FAQ', routeName: 'about', meta: { title: 'FAQ', icon: 'help' } },
 ];
 export const useRouteEnhancerStore = defineStore('routeEnhancer', {
     state: () => ({
         // 重組資料方便後續 給processRoute以及 processMenu 查找
         routeMetaConfig: new Map<string, RouteMetaConfigItem>(routeConfig.reduce((acc: [string, RouteMetaConfigItem][], routeObj) => {
             acc.push([routeObj.alias, routeObj]);
-            acc.push([routeObj.route, routeObj]);
+            acc.push([routeObj.routeName, routeObj]);
             return acc;
         }, [])),
     }),
