@@ -14,7 +14,7 @@ export interface AppMenuItem {
     key: string
     label: string
     icon: string
-    route: string
+    routeName: string
     children: AppMenuItem[]
 }
 
@@ -93,7 +93,7 @@ export const useMenu = defineStore('menu', {
                         key: item.key,
                         label: routeConfig.meta.title,
                         icon: routeConfig.meta.icon,
-                        route: routeConfig.route,
+                        routeName: routeConfig.routeName,
                         children,
                     });
                     return result;
