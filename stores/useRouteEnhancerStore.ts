@@ -2,21 +2,37 @@ import type { RouteRecordNormalized } from 'vue-router';
 // stores/routeEnhancerStore.ts
 import { defineStore } from 'pinia';
 
-interface RouteMetaConfigItem {
+export interface RouteMetaConfigItem {
     alias: string
+    route: string
     meta: {
         title: string
         icon: string
         [key: string]: any
     }
 }
+// title 只是方便前端看這路由是什麼名字 到時候會用多語系檔來讀文字
+const routeConfig: RouteMetaConfigItem[] = [
+    { alias: 'App_Test', route: 'test', meta: { title: '測試頁面', icon: 'quiz' } },
+    { alias: 'Dashboard', route: 'dashboard', meta: { title: 'Dashboard', icon: 'home' } },
+    { alias: 'UserProfile', route: 'profile', meta: { title: '個人中心', icon: 'person' } },
+    { alias: 'Account', route: 'account', meta: { title: '帳務管理', icon: 'paid' } },
+    { alias: 'Deposit', route: 'account-deposit', meta: { title: '存款', icon: 'currency_exchange' } },
+    { alias: 'Withdrawal', route: 'account-withdrawal', meta: { title: '提款', icon: 'sell' } },
+    { alias: 'Activity', route: 'activity', meta: { title: '活动', icon: 'currency_bitcoin' } },
+    { alias: 'Promo', route: 'promo', meta: { title: '促銷', icon: 'flood' } },
+    { alias: 'Report', route: 'report', meta: { title: '報表', icon: 'description' } },
+    { alias: 'VIP', route: 'vip', meta: { title: 'VIP', icon: 'star' } },
+    { alias: 'FAQ', route: 'about', meta: { title: 'FAQ', icon: 'help' } },
+];
 export const useRouteEnhancerStore = defineStore('routeEnhancer', {
     state: () => ({
-        // 例如將 routeMetaConfig 放入 state 中
-        routeMetaConfig: new Map<string, RouteMetaConfigItem>([
-            ['account-deposit', { alias: 'Deposit', meta: { title: '入金', icon: 'exchange' } }],
-            // 其他設定
-        ]),
+        // 重組資料方便後續 給processRoute以及 processMenu 查找
+        routeMetaConfig: new Map<string, RouteMetaConfigItem>(routeConfig.reduce((acc: [string, RouteMetaConfigItem][], routeObj) => {
+            acc.push([routeObj.alias, routeObj]);
+            acc.push([routeObj.route, routeObj]);
+            return acc;
+        }, [])),
     }),
     actions: {
         processRoute(route: RouteRecordNormalized): RouteRecordNormalized {
