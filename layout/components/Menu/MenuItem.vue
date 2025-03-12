@@ -4,26 +4,27 @@ import MenuItem from '@/layout/components/Menu/MenuItem.vue'; // 這樣可以遞
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-const props = defineProps<{
+const { menu, level } = defineProps<{
     menu: AppMenuItem
+    level: number
 }>();
 
 const router = useRouter();
 
 const hasChildren = computed(() => {
-    return props.menu.children && props.menu.children.length > 0;
+    return menu.children && menu.children.length > 0;
 });
 
 function navigateTo() {
-    router.push(props.menu.route);
+    router.push({ name: menu.routeName });
 }
 </script>
 
 <template>
     <!-- 如果有子選單，使用展開元件 -->
-    <q-expansion-item v-if="hasChildren" :label="menu.label" :icon="menu.icon" expand-separator>
+    <q-expansion-item v-if="hasChildren" :label="menu.label" :icon="menu.icon" :header-inset-level="level" :content-inset-level="level + 1" expand-separator>
         <q-list>
-            <MenuItem v-for="child in menu.children" :key="child.key" :menu="child" />
+            <MenuItem v-for="child in menu.children" :key="child.key" :menu="child" :level=" level + 1" />
         </q-list>
     </q-expansion-item>
 
