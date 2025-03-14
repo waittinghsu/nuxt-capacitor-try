@@ -10,6 +10,7 @@ export default defineNuxtPlugin(() => {
         const newRoute = enhancerStore.processRoute(route);
         // 根據需求，若路由有 name 就移除原路由並新增帶加工後的路由
         if (typeof route.name === 'string') {
+            // console.log(route.name, newRoute);
             router.removeRoute(route.name);
             router.addRoute(newRoute);
         }
