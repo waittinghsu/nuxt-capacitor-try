@@ -2,21 +2,20 @@
 import type { AppMenuItem } from '@/stores/useMenu';
 import MenuItem from '@/layout/components/Menu/MenuItem.vue'; // 這樣可以遞迴使用
 import { computed } from 'vue';
-import { useRouter } from 'vue-router';
 
 const { menu, level } = defineProps<{
     menu: AppMenuItem
     level: number
 }>();
 
-const router = useRouter();
+// const router = useRouter();
 
 const hasChildren = computed(() => {
     return menu.children && menu.children.length > 0;
 });
 
-function navigateTo() {
-    router.push({ name: menu.routeName });
+function navigateToByMenu() {
+    navigateTo({ name: menu.routeName });
 }
 </script>
 
@@ -29,7 +28,7 @@ function navigateTo() {
     </q-expansion-item>
 
     <!-- 無子選單則直接使用 q-item -->
-    <q-item v-else v-ripple clickable @click="navigateTo">
+    <q-item v-else v-ripple clickable @click="navigateToByMenu">
         <q-item-section avatar>
             <q-icon :name="menu.icon" />
         </q-item-section>
