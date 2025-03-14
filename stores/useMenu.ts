@@ -21,6 +21,7 @@ export interface AppMenuItem {
 // 定義 store 的狀態介面
 interface MenuState {
     menuList: MenuItem[]
+    permissionKey: { [key: string]: boolean }
     activeKey: string
     loading: boolean
 }
@@ -73,6 +74,17 @@ export const useMenu = defineStore('menu', {
                 children: [],
             },
         ] as MenuItem[],
+        permissionKey: {
+            Dashboard: true,
+            UserProfile: true,
+            Account: true,
+            Deposit: false,
+            Withdrawal: true,
+            Activity: true,
+            Report: false,
+            Promo: true,
+            App_Test: false,
+        },
         activeKey: '', // 當前選中的選單項目
         loading: false,
     }),
@@ -82,13 +94,16 @@ export const useMenu = defineStore('menu', {
             const routeEnhancer = useRouteEnhancerStore();
             function processMenus(menus: MenuItem[]): AppMenuItem[] {
                 return menus.reduce<AppMenuItem[]>((result, item) => {
+                    // 若 permissionKey 為 false，則跳過該選項
+                    if (!state.permissionKey[item.key]) {
+                        return result;
+                    }
                     // 若找不到對應配置則跳過這個選項
                     const routeConfig = routeEnhancer.routeMetaConfig.get(item.key);
                     if (!routeConfig) {
                         return result;
                     }
-                    const children
-                        = item.children && item.children.length ? processMenus(item.children) : [];
+                    const children = item.children && item.children.length ? processMenus(item.children) : [];
                     result.push({
                         key: item.key,
                         label: routeConfig.meta.title,
