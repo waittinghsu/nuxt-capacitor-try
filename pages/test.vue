@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import SectionArea from '@/features/test/components/sectionArea.vue';
 import { useMenu } from '@/stores/useMenu';
 import { useRouterStore } from '@/stores/useRoute';
-import SectionArea from './components/sectionArea.vue';
 
 const menuStore = useMenu();
 const routerStore = useRouterStore();
