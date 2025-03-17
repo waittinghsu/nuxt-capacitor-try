@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const myListRef = ref(null);
 const sections = [
     {
         image: new URL('@/assets/images/activity/section1.png', import.meta.url).href,
@@ -26,23 +27,19 @@ const sections = [
 <template>
     <div class="q-pa-md">
         <div class="row q-col-gutter-md">
-            <div
-                v-for="(section, index) in sections"
+            <q-intersection
+                v-for="(num, index) in 60"
                 :key="index"
+                :root="myListRef"
                 class="col-12 col-md-4"
             >
                 <q-card class="bg-deep-purple-7">
                     <q-img
-                        :src="section.image"
+                        :src="sections[num % 5].image"
                         fit="contain"
                     />
-                    <!--                    <q-card-section class="text-center text-white"> -->
-                    <!--                        <div class="text-h6"> -->
-                    <!--                            {{ section.title }} -->
-                    <!--                        </div> -->
-                    <!--                    </q-card-section> -->
                 </q-card>
-            </div>
+            </q-intersection>
         </div>
     </div>
 </template>
