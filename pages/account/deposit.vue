@@ -1,50 +1,76 @@
+<!-- pages/account/deposit.vue -->
 <script setup lang="ts">
-const sections = [
+import ActionGrid from '@/features/account/deposit/components/ActionGrid.vue';
+import BalanceDisplay from '@/features/account/deposit/components/BalanceDisplay.vue';
+import SlideItem from '@/features/account/deposit/components/SlideItem.vue';
+import TransactionCard from '@/features/account/deposit/components/TransactionCard.vue';
+import { ref } from 'vue';
+
+const totalBalance = ref(100000);
+const availableBalance = ref(80000);
+const frozenBalance = ref(20000);
+
+const transactions = ref([
     {
-        image: new URL('@/assets/images/activity/section1.png', import.meta.url).href,
-        title: '區塊 1',
+        title: '定期存款',
+        amount: 50000,
+        description: '這是一個長期定期存款，年利率3.5%，期限12個月',
+        progress: 0.3,
     },
     {
-        image: new URL('@/assets/images/activity/section2.png', import.meta.url).href,
-        title: '區塊 2',
+        title: '定期存款',
+        amount: 50000,
+        description: '這是一個長期定期存款，年利率3.5%，期限12個月',
+        progress: 0.3,
     },
     {
-        image: new URL('@/assets/images/activity/section3.png', import.meta.url).href,
-        title: '區塊 3',
+        title: '定期存款',
+        amount: 50000,
+        description: '這是一個長期定期存款，年利率3.5%，期限12個月',
+        progress: 0.3,
     },
-];
+    {
+        title: '定期存款',
+        amount: 50000,
+        description: '這是一個長期定期存款，年利率3.5%，期限12個月',
+        progress: 0.3,
+    },
+    // ... 更多交易記錄
+]);
 </script>
 
 <template>
-    <div class="q-pa-md">
-        <div class="row q-col-gutter-md">
-            <div
-                v-for="(section, index) in sections"
-                :key="index"
-                class="col-12 col-md-4"
-            >
-                <q-card class="bg-deep-purple-7">
-                    <q-img
-                        :src="section.image"
-                        fit="contain"
-                    />
-                    <!--                    <q-card-section class="text-center text-white"> -->
-                    <!--                        <div class="text-h6"> -->
-                    <!--                            {{ section.title }} -->
-                    <!--                        </div> -->
-                    <!--                    </q-card-section> -->
-                </q-card>
-            </div>
+    <q-page>
+        <!-- 上半部深色區域 -->
+        <div class="bg-dark">
+            <BalanceDisplay :balance="totalBalance" />
+
+            <!-- 滑動項目 -->
+            <SlideItem title="Account Detail" :amount="availableBalance" />
+            <SlideItem title="Account Detail" :amount="frozenBalance" />
+
+            <!-- 功能方塊 -->
+            <ActionGrid />
         </div>
-    </div>
+
+        <!-- 下半部淺色區域 -->
+        <div class="bg-grey-1 q-pa-md">
+            <TransactionCard
+                v-for="(transaction, index) in transactions"
+                :key="index"
+                v-bind="transaction"
+            />
+        </div>
+    </q-page>
 </template>
 
 <style lang="scss" scoped>
-.q-img {
-  transition: transform 0.3s ease;
+.q-page {
+  background: var(--q-dark);
+}
 
-  &:hover {
-    transform: scale(1.05);
-  }
+.bg-grey-1 {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 </style>
