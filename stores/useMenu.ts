@@ -78,7 +78,7 @@ export const useMenu = defineStore('menu', {
             Dashboard: true,
             UserProfile: true,
             Account: true,
-            Deposit: false,
+            Deposit: true,
             Withdrawal: true,
             Activity: true,
             Report: false,
