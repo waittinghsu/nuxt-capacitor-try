@@ -1,7 +1,7 @@
 // features/account/components/TransactionCard.vue
 // 交易卡片組件
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
     title: string
     amount: number
     description: string
@@ -10,7 +10,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <q-card flat class="q-mb-sm">
+    <q-card flat class="q-mb-sm bg-deep-purple-6">
         <q-card-section>
             <div class="row justify-between items-center">
                 <div class="text-subtitle1">
