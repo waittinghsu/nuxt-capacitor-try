@@ -1,10 +1,14 @@
 import {
+    ClosePopup,
     Notify,
     QAvatar,
+    QBar,
     QBtn,
     QCard,
     QCardActions,
     QCardSection,
+    QCarousel,
+    QCarouselSlide,
     QChip,
     QDrawer,
     QExpansionItem,
@@ -24,6 +28,7 @@ import {
     QScrollArea,
     QSeparator,
     QSlideItem,
+    QSpace,
     QTab,
     QTable,
     QTabs,
@@ -31,6 +36,7 @@ import {
     QTh,
     QToolbar,
     QToolbarTitle,
+    QTooltip,
     QTr,
     Quasar,
     Ripple,
@@ -42,6 +48,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(Quasar, {
         directives: {
             Ripple, // 显式注册 Ripple 指令
+            ClosePopup,
         },
         plugins: {
             Notify,
@@ -52,10 +59,13 @@ export default defineNuxtPlugin((nuxtApp) => {
         components: {
             QAvatar,
             QBtn,
+            QBar,
             QCard,
             QChip,
             QCardSection,
             QCardActions,
+            QCarousel,
+            QCarouselSlide,
             QExpansionItem,
             QDrawer,
             QFooter,
@@ -74,6 +84,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             QScrollArea,
             QSeparator,
             QSlideItem,
+            QSpace,
             QTable,
             QTr,
             QTd,
@@ -81,6 +92,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             QTabs,
             QTab,
             QToolbar,
+            QTooltip,
             QToolbarTitle,
         },
     });
