@@ -1,5 +1,6 @@
 <script setup>
 import { useMenu } from '@/stores/useMenu';
+import LoginModal from '~/components/auth/LoginModal.vue';
 import material from '/assets/images/material-bg.png';
 import Menu from '/layout/components/Menu';
 
@@ -9,6 +10,12 @@ const { appMenu } = storeToRefs(menuStore);
 console.log('appMenu', appMenu.value);
 const tab = ref('images');
 const drawer = ref(true);
+
+// 登入框相關
+const loginModal = ref(null);
+function showLoginModal() {
+    loginModal.value?.show();
+}
 </script>
 
 <template>
@@ -27,7 +34,7 @@ const drawer = ref(true);
                         Quasar Framework
                     </q-toolbar-title>
                     <nav />
-                    <q-btn flat round dense icon="whatshot" />
+                    <q-btn flat round dense icon="whatshot" @click="showLoginModal" />
                 </q-toolbar>
             </q-header>
             <q-page-container class="">
@@ -70,6 +77,7 @@ const drawer = ref(true);
                 </q-img>
             </q-drawer>
         </q-layout>
+        <LoginModal ref="loginModal" />
         <NuxtRouteAnnouncer />
     </div>
 </template>
