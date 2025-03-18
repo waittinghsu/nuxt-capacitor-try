@@ -20,8 +20,8 @@ const slide = ref<string>('FB');
         control-color="amber"
         padding
         arrows
-        height="200px"
-        class="bg-deep-purple-1 shadow-2 rounded-borders"
+        height="190px"
+        class="bg-grey-10 shadow-0 rounded-borders"
     >
         <q-carousel-slide v-for="card in cardList" :key="card.name" :name="card.name" class="column no-wrap flex-center">
             <!--            <q-icon name="style" size="56px" /> -->
