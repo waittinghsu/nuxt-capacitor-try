@@ -19,17 +19,17 @@ function showLoginModal() {
 </script>
 
 <template>
-    <div class="bg-deep-purple-7">
+    <div class="tw-bg-primary-200">
         <q-layout view="lHh lpr lFf" container style="height: 100vh" class="shadow-2 rounded-borders">
             <q-header elevated>
                 <!-- 狀態列空間 -->
                 <div class="status-bar" />
                 <!-- 實際工具列 -->
-                <q-toolbar class="glossy bg-deep-purple-9">
+                <q-toolbar class="glossy tw-bg-primary-700">
                     <q-btn flat round dense icon="menu" class="q-mr-sm" @click="drawer = !drawer" />
-                    <q-avatar>
-                        <img src="assets/svg/logo-light.svg">
-                    </q-avatar>
+<!--                    <q-avatar>-->
+<!--                        <img src="assets/svg/logo-light.svg">-->
+<!--                    </q-avatar>-->
                     <q-toolbar-title class="text-center">
                         Quasar Framework
                     </q-toolbar-title>
@@ -40,16 +40,19 @@ function showLoginModal() {
             <q-page-container class="">
                 <NuxtPage /> <!-- 必須保留，用於渲染子路由頁面 -->
             </q-page-container>
-            <q-footer bordered class="bg-deep-purple-9">
+            <q-footer bordered class="!tw-bg-primary-700">
                 <q-tabs
                     v-model="tab" no-caps
-                    active-color="primary"
+                    active-color="secondary"
                     indicator-color="transparent" class="text-white footer-tabs"
                 >
-                    <q-tab name="Home" icon="home" label="Home" />
-                    <q-tab name="Promo" icon="redeem" label="Promo" />
+                    <q-route-tab icon="home" name="Home" label="Home" to="/" exact/>
+<!--                    <q-tab name="Home" icon="home" label="Home" />-->
+                    <q-route-tab icon="redeem" name="Promo" label="Promo" to="/promo" exact/>
+<!--                    <q-tab name="Promo" icon="redeem" label="Promo" />-->
                     <q-tab name="Get" icon="coronavirus" label="Get 500" class="text-h5" />
-                    <q-tab name="Earn" icon="savings" label="Earn" />
+                    <q-route-tab icon="savings" name="Earn" label="Earn" to="/account/deposit" exact/>
+<!--                    <q-tab name="Earn" icon="savings" label="Earn" />-->
                     <q-tab name="Mine" icon="person" label="Mine" />
                 </q-tabs>
             </q-footer>
@@ -111,9 +114,14 @@ nav a {
       i {
         position: absolute;
         top: -31px;
-        left: 25%;
+        left: 50%;
         transform: translateX(-50%);
         font-size: 60px;
+        background-color: var(--q-primary-dark);
+        width: 77px;
+        height: 32px;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
       }
       .q-tab__label {
         font-size: 20px;
