@@ -25,15 +25,19 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.2.0",
+    "@nuxtjs/tailwindcss": "^6.13.2",
     "@types/node": "^22.13.1",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.20.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-vue": "^9.32.0",
+    "postcss": "^8.5.3",
     "sass": "1.77.6",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
   }
 }
