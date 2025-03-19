@@ -8,6 +8,23 @@ body {
     margin: 0;
 }
 
+
+/*:root[data-theme="green"] {*/
+/*    --q-primary: #2E7D32;*/
+/*    --q-primary-light: #4CAF50;*/
+/*    --q-primary-dark: #1B5E20;*/
+/*    --q-secondary: #81C784;*/
+/*    --q-secondary-light: #A5D6A7;*/
+/*}*/
+
+/*:root[data-theme="purple"] {*/
+/*    --q-primary: #7A4EFF;*/
+/*    --q-primary-light: #A178FF;*/
+/*    --q-primary-dark: #5C34C4;*/
+/*    --q-secondary: #FF7ACB;*/
+/*    --q-secondary-light: #FFAFE0;*/
+/*}*/
+
 label {
     font-weight: 700;
 }
