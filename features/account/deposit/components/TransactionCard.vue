@@ -27,7 +27,7 @@ function handleLeftSlide() {
                 Right content.. long <q-icon right name="alarm" />
             </div>
         </template>
-        <q-card flat class=" bg-deep-purple-6">
+        <q-card flat class="bg-deep-purple-6">
             <q-card-section>
                 <div class="row justify-between items-center">
                     <div class="text-subtitle1">
