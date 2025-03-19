@@ -81,9 +81,10 @@ export const useMenu = defineStore('menu', {
             Deposit: true,
             Withdrawal: true,
             Activity: true,
-            Report: false,
+            Report: true,
             Promo: true,
-            App_Test: false,
+            App_Test: true,
+            VIP: true,
         },
         activeKey: '', // 當前選中的選單項目
         loading: false,
