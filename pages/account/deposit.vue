@@ -58,7 +58,7 @@ const cardList = ref<Card[]>([
 <template>
     <q-page>
         <!-- 上半部深色區域 -->
-        <div class="bg-grey-10">
+        <div class="bg-grey-10 ">
             <BalanceDisplay :balance="totalBalance" />
 
             <!-- 滑動項目 -->
@@ -69,7 +69,7 @@ const cardList = ref<Card[]>([
         </div>
 
         <!-- 下半部淺色區域 -->
-        <div class="bg-deep-purple-2 q-pa-md">
+        <div class="bg-deep-purple-2 q-pa-md tw-rounded-t-xl">
             <TransactionCard
                 v-for="(transaction, index) in transactions"
                 :key="index"
@@ -80,9 +80,9 @@ const cardList = ref<Card[]>([
 </template>
 
 <style lang="scss" scoped>
-.q-page {
-  background: var(--q-dark);
-}
+//.q-page {
+//  background: var(--q-dark);
+//}
 
 .bg-grey-1 {
   border-top-left-radius: 20px;
