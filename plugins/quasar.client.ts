@@ -26,7 +26,7 @@ import {
     QLinearProgress,
     QList,
     QPage,
-    QPageContainer,
+    QPageContainer, QRouteTab,
     QScrollArea,
     QSeparator,
     QSlideItem,
@@ -45,6 +45,7 @@ import {
 } from 'quasar';
 import 'quasar/dist/quasar.css';
 import '@quasar/extras/material-icons/material-icons.css';
+import { baseColors } from '@/design-token/colors'
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(Quasar, {
@@ -57,6 +58,14 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         config: {
             dark: true, // 全局默认暗黑模式
+            brand: {
+                primary: baseColors.primary[500],
+                'primary-light': baseColors.primary[300],
+                'primary-dark': baseColors.primary[700],
+                secondary: baseColors.secondary[500],
+                'secondary-light': baseColors.secondary[300],
+                'secondary-dark': baseColors.secondary[700],
+            }
         },
         components: {
             QAvatar,
@@ -95,6 +104,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             QTh,
             QTabs,
             QTab,
+            QRouteTab,
             QToolbar,
             QTooltip,
             QToolbarTitle,
