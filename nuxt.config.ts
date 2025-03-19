@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     // 加載模塊
     modules: [
         '@pinia/nuxt',
+        '@nuxtjs/tailwindcss'
     ],
     alias: {
     },
@@ -37,6 +38,8 @@ export default defineNuxtConfig({
     ], // 示例：加載全局樣式
     postcss: {
         plugins: {
+            'tailwindcss/nesting': {},
+            tailwindcss: {},
             autoprefixer: {},
         },
     },
