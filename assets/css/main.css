@@ -9,21 +9,94 @@ body {
 }
 
 
-/*:root[data-theme="green"] {*/
-/*    --q-primary: #2E7D32;*/
-/*    --q-primary-light: #4CAF50;*/
-/*    --q-primary-dark: #1B5E20;*/
-/*    --q-secondary: #81C784;*/
-/*    --q-secondary-light: #A5D6A7;*/
-/*}*/
+:root[data-theme="green"] {
+    /* Primary Colors (綠色系) */
+    --q-primary: #4CAF50;          /* 主色 (500) */
+    --q-primary-light: #81c784;
+    --q-primary-dark: #388e3c;
+    --q-primary-50: #e8f5e9;
+    --q-primary-100: #c8e6c9;
+    --q-primary-200: #a5d6a7;
+    --q-primary-300: #81c784;      /* hover */
+    --q-primary-400: #66bb6a;
+    --q-primary-500: #4CAF50;      /* 主色 */
+    --q-primary-600: #43a047;
+    --q-primary-700: #388e3c;      /* active */
+    --q-primary-800: #2e7d32;
+    --q-primary-900: #1b5e20;
 
-/*:root[data-theme="purple"] {*/
-/*    --q-primary: #7A4EFF;*/
-/*    --q-primary-light: #A178FF;*/
-/*    --q-primary-dark: #5C34C4;*/
-/*    --q-secondary: #FF7ACB;*/
-/*    --q-secondary-light: #FFAFE0;*/
-/*}*/
+    /* Secondary Colors (黃綠輔色) */
+    --q-secondary: #AED581;        /* 主副色 (500) */
+    --q-secondary-50: #f9fbe7;
+    --q-secondary-100: #f0f4c3;
+    --q-secondary-200: #e6ee9c;
+    --q-secondary-300: #dce775;    /* hover */
+    --q-secondary-400: #d4e157;
+    --q-secondary-500: #aed581;    /* 主副色 */
+    --q-secondary-600: #9ccc65;
+    --q-secondary-700: #8bc34a;    /* active */
+    --q-secondary-800: #7cb342;
+    --q-secondary-900: #689f38;
+
+    /* Neutral Colors (灰階) */
+    --q-dark: #1A1A1A;
+    --q-dark-page: #1A1A1A;
+    --q-grey: #737373;
+    --q-grey-light: #d4d4d4;
+    --q-grey-dark: #404040;
+
+    /* Semantic Colors */
+    --q-positive: #2AD07E;
+    --q-warning: #FFC542;
+    --q-negative: #FF4D4F;
+    --q-info: #4DAFFF;
+}
+
+:root,
+:root[data-theme="purple"] {
+    /* Primary Colors */
+    --q-primary: #7A4EFF; /* 主色 */
+    --q-primary-light: #a178ff; /* hover 淺紫 */
+    --q-primary-dark: #5C34C4; /* active 深紫 */
+    --q-primary-50: #f2ebff;
+    --q-primary-100: #e1d4ff;
+    --q-primary-200: #c4aaff;
+    --q-primary-300: #a178ff;
+    --q-primary-400: #8a5aff;
+    --q-primary-500: #7A4EFF;
+    --q-primary-600: #6a41e6;
+    --q-primary-700: #5C34C4;
+    --q-primary-800: #4a28a1;
+    --q-primary-900: #391d7d;
+    /* Secondary Colors */
+    --q-secondary: #FF5ABD; /* 主粉 */
+    --q-secondary-light: #FFAFE0; /* 淺粉 */
+    --q-secondary-dark: #cc3c88;
+    --q-secondary-50: #fff0f8;
+    --q-secondary-100: #ffe0f0;
+    --q-secondary-200: #ffc2e0;
+    --q-secondary-300: #FFAFE0; /* hover */
+    --q-secondary-400: #ff7acb;
+    --q-secondary-500: #FF5ABD; /* 主粉 */
+    --q-secondary-600: #e94ca3;
+    --q-secondary-700: #cc3c88; /* active */
+    --q-secondary-800: #a32c6b;
+    --q-secondary-900: #7a1f4f;
+
+    /* Neutral Colors (這裡用 quasar 預設 neutral slot) */
+    --q-dark: #1A1A1A;
+    --q-dark-page: #1A1A1A;
+    --q-grey: #737373;
+    --q-grey-light: #d4d4d4;
+    --q-grey-dark: #404040;
+
+    /* Semantic Colors */
+    --q-positive: #2AD07E; /* 成功 */
+    --q-warning: #FFC542;  /* 警告 */
+    --q-negative: #FF4D4F; /* 錯誤 */
+    --q-info: #4DAFFF;     /* 資訊色 */
+
+}
 
 label {
     font-weight: 700;
