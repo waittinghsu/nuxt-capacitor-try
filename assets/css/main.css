@@ -11,32 +11,32 @@ body {
 
 :root[data-theme="green"] {
     /* Primary Colors (綠色系) */
-    --q-primary: #4CAF50;          /* 主色 (500) */
-    --q-primary-light: #81c784;
-    --q-primary-dark: #388e3c;
+    --q-primary: #388e3c;          /* 主色 (500) */
+    --q-primary-light: #66bb6a;    /* hover */
+    --q-primary-dark: #1b5e20;     /* active */
     --q-primary-50: #e8f5e9;
     --q-primary-100: #c8e6c9;
     --q-primary-200: #a5d6a7;
-    --q-primary-300: #81c784;      /* hover */
+    --q-primary-300: #81c784;
     --q-primary-400: #66bb6a;
-    --q-primary-500: #4CAF50;      /* 主色 */
-    --q-primary-600: #43a047;
-    --q-primary-700: #388e3c;      /* active */
-    --q-primary-800: #2e7d32;
-    --q-primary-900: #1b5e20;
+    --q-primary-500: #388e3c;      /* 主色 */
+    --q-primary-600: #2e7d32;
+    --q-primary-700: #1b5e20;      /* active 深綠 */
+    --q-primary-800: #134d17;
+    --q-primary-900: #0a2e0b;
 
     /* Secondary Colors (黃綠輔色) */
-    --q-secondary: #AED581;        /* 主副色 (500) */
-    --q-secondary-50: #f9fbe7;
-    --q-secondary-100: #f0f4c3;
-    --q-secondary-200: #e6ee9c;
-    --q-secondary-300: #dce775;    /* hover */
-    --q-secondary-400: #d4e157;
-    --q-secondary-500: #aed581;    /* 主副色 */
-    --q-secondary-600: #9ccc65;
-    --q-secondary-700: #8bc34a;    /* active */
-    --q-secondary-800: #7cb342;
-    --q-secondary-900: #689f38;
+    --q-secondary: #FFA726;        /* 主副色 (500) */
+    --q-secondary-50: #fff3e0;
+    --q-secondary-100: #ffe0b2;
+    --q-secondary-200: #ffcc80;
+    --q-secondary-300: #ffb74d;    /* hover */
+    --q-secondary-400: #ffa726;
+    --q-secondary-500: #FFA726;    /* 主副色 */
+    --q-secondary-600: #fb8c00;
+    --q-secondary-700: #f57c00;    /* active */
+    --q-secondary-800: #ef6c00;
+    --q-secondary-900: #e65100;
 
     /* Neutral Colors (灰階) */
     --q-dark: #1A1A1A;
