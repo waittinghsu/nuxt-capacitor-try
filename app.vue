@@ -19,7 +19,7 @@ function showLoginModal() {
 </script>
 
 <template>
-    <div class="tw-bg-primary-200">
+    <div class="tw-bg-gradient-to-br tw-from-primary-900 tw-to-secondary-700 tw-min-h-screen">
         <q-layout view="lHh lpr lFf" container style="height: 100vh" class="shadow-2 rounded-borders">
             <q-header elevated>
                 <!-- 狀態列空間 -->
@@ -117,7 +117,7 @@ nav a {
         left: 50%;
         transform: translateX(-50%);
         font-size: 60px;
-        background-color: var(--q-primary-dark);
+        background-color: var(--q-primary-700);
         width: 77px;
         height: 32px;
         border-top-right-radius: 16px;
