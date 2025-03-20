@@ -1,15 +1,51 @@
 <script setup lang="ts">
+import { colors } from 'quasar'
 
 const currentTheme = ref('purple')
+
+const currentColorVars = ref({})
+
+
 const changeToGreen = () => {
   document.documentElement.setAttribute('data-theme', 'green')
   currentTheme.value = 'green'
+
+
+  // const root = document.querySelector(':root')
+  // root && root.style.setProperty('--q-primary', '#7abe43')
+  //
+  // // 讀取當前的 CSS 變數值來確認是否設置成功
+  // const styles = getComputedStyle(document.documentElement)
+  // currentColorVars.value = {
+  //   'primary': styles.getPropertyValue('--q-primary'),
+  //   'computed-color': styles.getPropertyValue('color-primary')
+  // }
+
 }
 
 const changeToPurple = () => {
   document.documentElement.setAttribute('data-theme', 'purple')
   currentTheme.value = 'purple'
+
+  // const root = document.querySelector(':root')
+  // root && root.style.setProperty('--q-primary', '#32ccbc')
+  //
+  // // 讀取當前的 CSS 變數值來確認是否設置成功
+  // const styles = getComputedStyle(document.documentElement)
+  // currentColorVars.value = {
+  //   'primary': styles.getPropertyValue('--q-primary'),
+  //   'computed-color': styles.getPropertyValue('color-primary')
+  // }
+  console.log(colors);
 }
+
+onMounted(() => {
+  // const styles = getComputedStyle(document.documentElement)
+  // currentColorVars.value = {
+  //   'primary': styles.getPropertyValue('--q-primary'),
+  //   'computed-color': styles.getPropertyValue('color-primary')
+  // }
+})
 
 
 </script>
@@ -22,6 +58,13 @@ const changeToPurple = () => {
         <div class="bg-primary q-pa-md text-white">Quasar bg-primary</div>
         <!-- Tailwind 的顏色類 -->
         <div class="tw-bg-primary-600 tw-p-4 text-white">Tailwind tw-bg-primary</div>
+        <div class="test-box tw-bg-primary-700 q-pa-md">
+          測試區塊
+        </div>
+        <div class="color-box q-mt-md">
+          <pre>{{ currentColorVars }}</pre>
+        </div>
+
       </div>
 
       <div class="q-pa-md q-gutter-sm">
@@ -54,5 +97,15 @@ const changeToPurple = () => {
 </style>
 <style lang="scss">
 
+.color-box {
+  width: 200px;
+  height: 100px;
+  background-color: var(--q-primary-700);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
 
 </style>
