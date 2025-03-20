@@ -35,10 +35,12 @@ function removeLastChip() {
 
 <template>
     <div class="dashboard-page q-pa-md">
-        <span>{{ count }}</span>
-        <q-btn @click="incrementCount">
+        <div class="flex column">
+          <span class="q-mx-auto tw-font-bold tw-text-3xl">{{ count }}</span>
+          <q-btn color="primary" @click="incrementCount">
             incrementCount
-        </q-btn>
+          </q-btn>
+        </div>
         <!-- 上方 work 區塊，用來操作 chips -->
         <section class="q-mb-md">
             <h3>Work Section</h3>
