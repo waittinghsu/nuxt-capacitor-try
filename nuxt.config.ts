@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     // 加載模塊
     modules: [
         '@pinia/nuxt',
-        '@nuxtjs/tailwindcss'
+        '@unocss/nuxt',
     ],
     alias: {
     },
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
         },
         // 如果需要自定義配置，可以在這裡添加
         optimizeDeps: {
-            include: ['vue', 'vue-router'],
+            include: ['vue', 'vue-router', 'lodash-es'],
         },
     },
 
