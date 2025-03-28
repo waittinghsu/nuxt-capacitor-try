@@ -25,7 +25,7 @@ function showLoginModal() {
                 <!-- 狀態列空間 -->
                 <div class="status-bar" />
                 <!-- 實際工具列 -->
-                <q-toolbar class="glossy tw-bg-primary-700">
+                <q-toolbar class="glossy">
                     <q-btn flat round dense icon="menu" class="q-mr-sm" @click="drawer = !drawer" />
 <!--                    <q-avatar>-->
 <!--                        <img src="assets/svg/logo-light.svg">-->
@@ -40,7 +40,7 @@ function showLoginModal() {
             <q-page-container class="">
                 <NuxtPage /> <!-- 必須保留，用於渲染子路由頁面 -->
             </q-page-container>
-            <q-footer bordered class="!tw-bg-primary-700">
+            <q-footer bordered class="">
                 <q-tabs
                     v-model="tab" no-caps
                     active-color="secondary"
