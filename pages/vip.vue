@@ -56,6 +56,8 @@ onMounted(() => {
       <div class="row q-col-gutter-md q-mb-md">
         <!-- Quasar 的顏色類 -->
         <div class="bg-primary q-pa-md text-white">Quasar bg-primary</div>
+        <button class="omega">按鈕</button>
+
         <!-- Tailwind 的顏色類 -->
         <div class="tw-bg-primary-600 tw-p-4 text-white">Tailwind tw-bg-primary</div>
         <div class="test-box tw-bg-primary-700 q-pa-md">
