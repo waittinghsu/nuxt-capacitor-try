@@ -15,7 +15,7 @@ console.log('autoRoutes', routerStore.autoRoutes);
 
 <template>
     <div>
-        <!--        <iframe id="game-area" class="game-iframe" src="https://www.yiv.com/games/Sweet-Doll-Dressup-Makeup/index.html" style="width: 100%" :allowfullscreen="true" /> -->
+        <!--        <iframe id="game-area" class="game-iframe" src="https://www.yiv.com/games/Sweet-Doll-Dressup-Makeup/index.html" style="width: 100%" :allowf   ullscreen="true" /> -->
 
         <SectionArea />
       <div class="p-4 space-y-4">
@@ -53,7 +53,6 @@ console.log('autoRoutes', routerStore.autoRoutes);
           </div>
         </section>
       </div>
-
     </div>
 </template>
 
