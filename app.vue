@@ -19,7 +19,7 @@ function showLoginModal() {
 </script>
 
 <template>
-    <div class="tw-bg-gradient-to-br tw-from-primary-900 tw-to-secondary-700 tw-min-h-screen">
+    <div class="bg-gradient-to-br from-primary to-secondary min-h-screen">
         <q-layout view="lHh lpr lFf" container style="height: 100vh" class="shadow-2 rounded-borders">
             <q-header elevated>
                 <!-- 狀態列空間 -->
